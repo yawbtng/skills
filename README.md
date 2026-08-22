@@ -13,3 +13,15 @@ npx skills add yawbtng/skills --skill deslop
 ```
 
 See [`skills/deslop/SKILL.md`](skills/deslop/SKILL.md) for the full instructions and [`skills/deslop/references/`](skills/deslop/references/) for the pattern catalog, current word-tell list, structural checks, and scoring rubric it draws on.
+
+## eng
+
+Unified engineering workflow orchestrator. Auto-detects your current phase (discover, plan, build, verify, ship, learn) from git state, todos, and recent docs, and routes to the right sub-skill — no need to remember which one to call.
+
+**Requires two other plugins to actually run:** [gstack](https://github.com/search?q=gstack+cli) (`/gstack:plan-ceo-review`, `/gstack:plan-eng-review`, `/gstack:review`, `/gstack:ship`, `/gstack:retro`) and Compound Engineering (`/workflows:brainstorm`, `/workflows:plan`, `/workflows:work`, `/workflows:review`, `/workflows:compound`). Without both, phases that invoke their sub-skills will fail. If you don't have them, the phase-detection logic and decision tree are still a useful reference for building your own orchestrator around different workflow skills.
+
+```bash
+npx skills add yawbtng/skills --skill eng
+```
+
+See [`skills/eng/SKILL.md`](skills/eng/SKILL.md) for the full phase-detection logic and decision tree.
