@@ -25,3 +25,13 @@ npx skills add yawbtng/skills --skill eng
 ```
 
 See [`skills/eng/SKILL.md`](skills/eng/SKILL.md) for the full phase-detection logic and decision tree.
+
+## for-yourname-doc
+
+Writes (or updates) a `FOR_[NAME].md` — a single, plain-language project doc aimed at one specific person, not a README or API reference. Covers what the project does, a "big picture" analogy for how it fits together, technical architecture, tech choices and why, and — the distinctive part — real bugs, pitfalls, and lessons from the project, so it doubles as onboarding and a post-mortem.
+
+```bash
+npx skills add yawbtng/skills --skill for-yourname-doc
+```
+
+See [`skills/for-yourname-doc/SKILL.md`](skills/for-yourname-doc/SKILL.md) for the required sections and tone guide, and [`skills/for-yourname-doc/reference.md`](skills/for-yourname-doc/reference.md) for a fill-in-the-blank section outline.
