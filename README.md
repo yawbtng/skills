@@ -18,7 +18,7 @@ See [`skills/deslop/SKILL.md`](skills/deslop/SKILL.md) for the full instructions
 
 The code counterpart to `deslop`: detects or fixes code that reads as AI-generated — redundant comments, defensive overdose (try/catch or null-checks for states that can't occur), type-bypass casts, unneeded abstraction layers, deep nesting, boilerplate tests, and generic naming/style fingerprints. Defaults to diff-scoped review and minimal-diff fixes; preserves behavior.
 
-Synthesized from the top code-quality anti-slop skills on skills.sh (anti-slop, thermo-nuclear-code-quality-review, three separate `deslop` variants, desloppify, code-slop).
+Synthesized from the top code-quality anti-slop skills on skills.sh (anti-slop, thermo-nuclear-code-quality-review, three separate `deslop` variants, desloppify, code-slop) plus current research on AI-code tells — architectural fingerprint (locally uniform, architecturally inconsistent), duplicate/parallel implementations, and iterative-regeneration naming.
 
 ```bash
 npx skills add yawbtng/skills --skill code-deslop
