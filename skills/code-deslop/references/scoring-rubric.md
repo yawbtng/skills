@@ -10,12 +10,15 @@ For the reviewed scope (diff or files), count flagged instances per category fro
 |---|---|
 | Defensive overdose | 3 |
 | Type bypass | 3 |
+| Duplicate/parallel implementations | 3 |
 | Over-engineering | 2 |
 | Test slop | 2 |
 | Dead code | 2 |
 | Deep nesting | 1 |
 | Comment noise | 1 |
 | Naming/style fingerprints | 1 |
+
+Defensive overdose (broad `except: pass` / bare `catch {}` swallow-patterns) and duplicate/parallel implementations are the two categories current research most consistently flags as the highest-impact AI-code smells — hence the top weight. Architectural-fingerprint and process/workflow smells (see `patterns.md`) aren't scored per-instance; they're qualitative signals, not counted defects.
 
 **Score = 100 − (sum of weighted instances), floor at 0.** A clean diff with nothing flagged scores 100. Treat this the same direction as `desloppify`'s convention — higher is cleaner.
 

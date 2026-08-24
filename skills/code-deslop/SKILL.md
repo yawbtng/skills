@@ -25,15 +25,17 @@ Fix code that reads as AI-generated without rewriting more than necessary. The g
 
 ## Instructions
 
-1. **Scan for tells**, checking the code against every category in `references/patterns.md`:
+1. **Scan for tells**, checking the code against every category in `references/patterns.md`. Check the architectural fingerprint first — line-by-line uniform but architecturally inconsistent code (every comment/function formatted identically, yet each function/module solves similar problems its own way) is the single highest-confidence signal. Any one tell alone is a hunch; treat 4-5 co-occurring tells across categories as a reliable diagnosis, especially when the question is "does this look AI-written?" rather than "fix this flagged issue."
    - Comment noise — redundant, obvious, or stale comments
-   - Defensive overdose — try/catch, null-checks, or validation for states that can't occur given the call site
+   - Defensive overdose — try/catch, null-checks, or validation for states that can't occur given the call site (broad `except: pass` / bare `catch {}` swallows are the most common form)
    - Type bypass — `any` casts, unchecked assertions, silenced type errors
-   - Over-engineering — abstraction layers with one caller, premature config/flags, YAGNI violations
+   - Over-engineering — abstraction layers with one caller, premature config/flags, YAGNI violations, or the same concern re-solved differently across files/modules
+   - Duplicate/parallel implementations — the same logic reimplemented under different names because separate generation sessions didn't reuse existing code
    - Deep nesting — conditionals that should be early-returns
    - Test slop — boilerplate/AI-generated tests, redundant mocks, assertions that don't actually test the behavior claimed
-   - Naming/style fingerprints — generic tutorial-style names (`data`, `result`, `handleClick2`), uniformly "textbook" formatting that doesn't match the surrounding file's style
-   - Dead code — unused exports, unreachable branches, commented-out code left in place
+   - Naming/style fingerprints — generic tutorial-style names (`data`, `result`, `handleClick2`) or iterative-regeneration names (`data2`, `resultFinal`), uniformly "textbook" formatting that doesn't match the surrounding file's style
+   - Dead code — unused exports, unreachable branches, commented-out code, unused dependencies pulled in for an abandoned approach
+   - Process/workflow smells — a whole feature landing as one giant commit instead of incremental steps (note, don't "fix")
 
 2. **Score** with `references/scoring-rubric.md`. This decides how aggressive Step 3 should be — don't rewrite code that's mostly fine because it tripped one minor pattern. A single stray comment is not the same severity as a defensive try/catch masking a real bug.
 
