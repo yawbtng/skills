@@ -14,6 +14,18 @@ npx skills add yawbtng/skills --skill deslop
 
 See [`skills/deslop/SKILL.md`](skills/deslop/SKILL.md) for the full instructions and [`skills/deslop/references/`](skills/deslop/references/) for the pattern catalog, current word-tell list, structural checks, and scoring rubric it draws on.
 
+## code-deslop
+
+The code counterpart to `deslop`: detects or fixes code that reads as AI-generated — redundant comments, defensive overdose (try/catch or null-checks for states that can't occur), type-bypass casts, unneeded abstraction layers, deep nesting, boilerplate tests, and generic naming/style fingerprints. Defaults to diff-scoped review and minimal-diff fixes; preserves behavior.
+
+Synthesized from the top code-quality anti-slop skills on skills.sh (anti-slop, thermo-nuclear-code-quality-review, three separate `deslop` variants, desloppify, code-slop).
+
+```bash
+npx skills add yawbtng/skills --skill code-deslop
+```
+
+See [`skills/code-deslop/SKILL.md`](skills/code-deslop/SKILL.md) for the full instructions and [`skills/code-deslop/references/`](skills/code-deslop/references/) for the pattern catalog, scoring rubric, and minimal-diff vs. ambitious-restructuring mode contrast it draws on.
+
 ## eng
 
 Unified engineering workflow orchestrator. Auto-detects your current phase (discover, plan, build, verify, ship, learn) from git state, todos, and recent docs, and routes to the right sub-skill — no need to remember which one to call.
